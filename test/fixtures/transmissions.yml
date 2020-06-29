@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  origin_id: 1
+  new_patient_id: 1
+  location_id: 1
+  date: 2020-06-29 14:16:51
+  confirmed: false
+
+two:
+  origin_id: 1
+  new_patient_id: 1
+  location_id: 1
+  date: 2020-06-29 14:16:51
+  confirmed: false
