@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+        <div class="col-lg-10 col-xl-9 mx-auto">
+            <div class="card card-signin flex-row my-5">
+            <div class="card-img-left d-none d-md-flex">
+                <!-- Background image for card set in CSS! -->
+            </div>
+            <div class="card-body">
+                <h5 class="card-title text-center">Register</h5>
+                <form class="form-signin">
+                <div class="form-label-group">
+                    <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>"><br>
+                </div>
+
+                <div class="form-label-group">
+                    <input type="name" name="user[name]" class="form-control" placeholder="Name" required autofocus>
+                    <label for="user[name]">Name</label>
+                </div>
+
+                <div class="form-label-group">
+                    <input type="email" name="user[email]" class="form-control" placeholder="Email Address" required>
+                    <label for="user[email]">Email address</label>
+                </div>
+                
+                <div class="form-label-group">
+                    <input type="class_year" name="user[class_year]" class="form-control" placeholder="Class Year" required>
+                    <label for="user[class_year]">Class Year </label>
+                </div>
+                
+                <div class="form-label-group">
+                    <input type="residential_college" name="user[residential_college]" class="form-control" placeholder="Residential College" required>
+                    <label for="user[residential_college]">Residential College </label>
+                </div>
+                
+                <hr>
+
+                <div class="form-label-group">
+                    <input type="password" name="user[password]" class="form-control" placeholder="Password" required>
+                    <label for="user[password]">Password</label>
+                </div>
+                
+                <div class="form-label-group">
+                    <input type="password" name="user[password_confirmation]" class="form-control" placeholder="Password" required>
+                    <label for="user[password_confirmation]">Confirm password</label>
+                </div>
+
+                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
+                <hr class="my-4">
+                </form>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+</body>
+</html>

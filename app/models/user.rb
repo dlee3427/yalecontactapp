@@ -4,4 +4,11 @@ class User < ApplicationRecord
     has_many :visits
     has_many :locations, through: :visits
     has_many :transmissions
+
+    validates :username, uniqueness: true 
+    validates :username, presence: true 
+    validates :email, uniqueness: true
+    validates :email, presence: true 
+    validates :password, presence: true 
+
 end
