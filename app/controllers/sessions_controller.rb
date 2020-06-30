@@ -7,12 +7,11 @@ class SessionsController < ApplicationController
     end 
 
     def create 
-        @user = User.find(email: params[:session][:email].downcase)
-        if @user && @user.authenticate(params[:session][:password])
+        @user = User.find(email: params[:email])
+        if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id
-            redirect_to root_path 
+            redirect_to @user 
         else 
-            flash[:error] = "Invalid Email/Password"
             redirect_to "/login"
         end 
     end 
@@ -22,12 +21,5 @@ class SessionsController < ApplicationController
         session.delete(:user_id)
         redirect_to "/login"
     end 
-
-    private 
-
-    def login_params 
-        params.permit(:email, :password)
-    end 
-
 
 end 

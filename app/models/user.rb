@@ -8,12 +8,5 @@ class User < ApplicationRecord
     has_many :spreaders, through: :contracting_transmissions
     has_many :infectees, through: :spreading_transmissions
 
-
-    validates :username, uniqueness: true 
-    validates :username, presence: true 
-    validates :email, uniqueness: true
-    validates :email, presence: true 
-    validates :password, presence: true 
-
     has_secure_password
 end

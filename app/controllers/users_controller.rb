@@ -4,22 +4,22 @@ class UsersController < ApplicationController
 
     def new
         @user = User.new 
+        @colleges = ResCollege.all
     end 
 
     def create 
         @user = User.new(user_params)
+
         if @user.valid? 
             @user.save 
-            redirect_to @user 
+            redirect_to @user
         else 
-            flash[:register_error] = @user.errors.full_messages
             redirect_to "/signup"
         end 
-        redirect_to root_path 
     end 
 
     def show 
-        user = User.find(session[:user_id])
+        @user = User.find(params[:user_id])
     end 
 
     private 
@@ -31,7 +31,7 @@ class UsersController < ApplicationController
             :password, 
             :password_confirmation,
             :class_year,
-            :residential_college
+            :res_college_id
         )
     end 
 

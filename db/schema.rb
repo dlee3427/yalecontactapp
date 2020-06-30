@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_29_182917) do
+ActiveRecord::Schema.define(version: 2020_06_30_195358) do
 
   create_table "facilities", force: :cascade do |t|
     t.string "name"
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2020_06_29_182917) do
   create_table "tests", force: :cascade do |t|
     t.integer "user_id"
     t.datetime "date"
-    t.boolean "positive_result"
+    t.boolean "result"
     t.integer "facility_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -42,8 +42,8 @@ ActiveRecord::Schema.define(version: 2020_06_29_182917) do
 
   create_table "transmissions", force: :cascade do |t|
     t.integer "origin_id"
-    t.integer "spreader_id"
-    t.integer "infectee_id"
+    t.integer "new_patient_id"
+    t.integer "location_id"
     t.datetime "date"
     t.boolean "confirmed"
     t.datetime "created_at", precision: 6, null: false
@@ -54,10 +54,12 @@ ActiveRecord::Schema.define(version: 2020_06_29_182917) do
     t.string "name"
     t.integer "class_year"
     t.integer "res_college_id"
-    t.string "user_type"
+    t.string "type"
     t.boolean "contagious"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "email"
+    t.string "password_digest"
   end
 
   create_table "visits", force: :cascade do |t|

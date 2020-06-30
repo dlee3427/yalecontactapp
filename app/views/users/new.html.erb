@@ -8,11 +8,12 @@
           </div>
           <div class="card-body">
             <h5 class="card-title text-center">Register</h5>
-            <form class="form-signin">
-              <div class="form-label-group">
-                <%= form_for(@user, url: signup_path) do |f| %>
+                <%= form_with url: "/signup", method: "post" do |f| %>
                     <%= f.label :name %>
                     <%= f.text_field :name, class: 'form-control'%><br>
+
+                    <%= f.label :email %>
+                    <%= f.text_field :email, class: 'form-control'%><br>
                                 
                     <%= f.label :password %>
                     <%= f.password_field :password, class: 'form-control' %><br>
@@ -20,11 +21,22 @@
                     <%= f.label :password_confirmation %>
                     <%= f.password_field :password_confirmation, class: 'form-control'%><br>
                                         
+                    <%= f.label :res_college %>
+                    <%= f.collection_select :res_college_id, @colleges, :id, :name %><br>
+
+                    <%= f.label :class_year %>
+                    <%= f.text_field :class_year, class: 'form-control'%><br>
+
                     <hr class="my-4">
-                    <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
+                    
+                    <div class="form-group row">
+                      <div class="col-md-12 text-center">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                      </div>
+                    </div>
                 <% end %>
               </div>
-            </form>
           </div>
         </div>
       </div>
+</body>
