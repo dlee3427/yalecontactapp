@@ -6,7 +6,7 @@
   }
   
   body {
-    background: #cce7e8;
+    background-image: url("https://images.squarespace-cdn.com/content/v1/5ad62e3aec4eb7c4b00e03a0/1587597185912-6KN9KSVI4T2JUJYQ8D8T/ke17ZwdGBToddI8pDm48kFmfxoboNKufWj-55Bgmc-J7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0iXS6XmVv7bUJ418E8Yoc1hjuviiiZmrL38w1ymUdqq4JaGeFUxjM-HeS7Oc-SSFcg/shutterstock_386664337.jpg?format=2500w");
   }
   
   .card-signin {
@@ -25,7 +25,7 @@
   .card-signin .card-img-left {
     width: 45%;
     /* Link to your background image using in the property below! */
-    background: scroll center url('https://www.thoughtco.com/thmb/7iqLA63QHab6wVRjrkoPOagnhMw=/4938x2778/smart/filters:no_upscale()/the-sterling-memorial-library-at-yale-university-578676011-5a6c9b42ba617700370ecc9a.jpg');
+    background: scroll center url('https://printer.yale.edu/sites/default/files/files/iPad17.jpg');
     background-size: cover;
   }
   
@@ -107,5 +107,33 @@
     font-size: 12px;
     color: #777;
   }
+
+  .big-text {
+    font-size: 60px;
+    margin: 20px 0;
+    color: darkblue
+
+  }
+
+  a.btn 
+  {
+    margin: 30px 10px;
+    width: 150px; 
+    padding: 10px; 
+    border-radius: 20px;
+  }
+
+  a.btn-first 
+  {
+    background-color: lightblue;
+    color: #000; 
+  }
+
+  a.btn-second 
+
+  {
+    background-color: lightblue;
+    color: #000; 
+  } 
   
  
