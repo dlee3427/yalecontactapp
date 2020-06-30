@@ -1,6 +1,4 @@
 class User < ApplicationRecord
-
-
     belongs_to :res_college
     has_many :tests
     has_many :visits
