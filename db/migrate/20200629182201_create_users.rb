@@ -4,7 +4,7 @@ class CreateUsers < ActiveRecord::Migration[6.0]
       t.string :name
       t.integer :class_year
       t.integer :res_college_id
-      t.string :type
+      t.string :user_type
       t.boolean :contagious
 
       t.timestamps
