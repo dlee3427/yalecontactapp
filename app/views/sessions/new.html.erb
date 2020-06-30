@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="stylesheeets/login.css_scss">
 </head>
 <body>
   <div class="container">
@@ -11,20 +10,18 @@
           <div class="card-body">
             <h5 class="card-title text-center">Sign In</h5>
             <form class="form-signin">
-              <div class="form-label-group">
-                <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token%>">
-              </div>
-              <div class="form-label-group">
-                <input type="email" name="login[email]" class="form-control" placeholder="Email Address" required autofocus>
-                <label for="login[email]">Email address</label>
-              </div>
-              <div class="form-label-group">
-                <input type="password" name="login[password]" class="form-control" placeholder="Password" required>
-                <label for="login[password]">Password</label>
-              </div>
+                <div class="form-label-group">
+                    <%= form_for(:session, url: login_path) do |f| %>
 
-              <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
-              <hr class="my-4">
+                    <%= f.label :email %>
+                    <%= f.email_field :email, class: 'form-control' %>
+
+                    <%= f.label :password %>
+                    <%= f.password_field :password, class: 'form-control' %><br>
+                    <hr class="my-4">
+                    <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Sign in</button>
+                    <% end %>
+                </div>
             </form>
           </div>
         </div>
@@ -33,3 +30,4 @@
   </div>
 </body>
 </html>
+
