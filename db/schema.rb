@@ -34,14 +34,14 @@ ActiveRecord::Schema.define(version: 2020_06_29_182917) do
   create_table "tests", force: :cascade do |t|
     t.integer "user_id"
     t.datetime "date"
-    t.boolean "result"
+    t.boolean "positive_result"
     t.integer "facility_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "transmissions", force: :cascade do |t|
-    t.integer "location_id"
+    t.integer "origin_id"
     t.integer "spreader_id"
     t.integer "infectee_id"
     t.datetime "date"
