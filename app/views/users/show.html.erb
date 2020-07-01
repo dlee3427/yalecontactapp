@@ -1,16 +1,21 @@
 <body>
-    
-    <section id="section-a">
-        <h2><%=@user.name%>'s Test Results</h2>
+    <section class="py-5">
+        <div class="container">
+        <div class="row">
+        </div >
     </section>
 
+    <section id="section-a">
+        <h2><%=@user.name%>'s Test Results</h2>
+        <p></p>
+    </section>
 
-    <div class="form-group row">
-        <div class="col-md-12 text_center">
-            <%= form_with url: "/logout", method: "delete" do |f| %>
-                <%= f.submit "Logout"  %>
-            <% end %>
-        </div>
-    </div>
+    <section id="section-b">
+        <p></p>
+        <%= form_with url: "/logout", method: "delete" do |f| %>
+            <%= f.submit "Logout"  %>
+        <% end %>
+    </section>
+
 
 </body>
