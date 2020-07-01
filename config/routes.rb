@@ -14,6 +14,10 @@ Rails.application.routes.draw do
 
   resources :tests, only: [:show, :new, :create]
 
+  get '/visits' => 'visits#new'
+  post '/visits' => 'vists#post'
+  
+
   
 
   

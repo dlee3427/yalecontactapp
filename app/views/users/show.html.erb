@@ -27,13 +27,9 @@
 
         <div class="container">
             <h5>Test History</h5>
-            <ul>
+        
             <% @user.tests.each do |t| %>
-                <li>
-                    <%= link_to t.date, test_path(@user) %>
-                    <%= t.facility %></p>
-                    <%= t.result %></p>
-                </li>
+                <%= t.date %>
             <% end %>
             </ul>
         </div>
