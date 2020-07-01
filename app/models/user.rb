@@ -29,7 +29,7 @@ class User < ApplicationRecord
     def visits_after(date)
         self.visits.where("date > ?", date)
     end
-
+   
     # called when a user tests positive
     # creates instances of Transmission for where, when, and from whom the user may have contracted the virus in the past two weeks
     def find_possible_transmissions(test)
