@@ -6,7 +6,7 @@
   }
   
   body {
-    background-image: url("https://images.squarespace-cdn.com/content/v1/5ad62e3aec4eb7c4b00e03a0/1587597185912-6KN9KSVI4T2JUJYQ8D8T/ke17ZwdGBToddI8pDm48kFmfxoboNKufWj-55Bgmc-J7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0iXS6XmVv7bUJ418E8Yoc1hjuviiiZmrL38w1ymUdqq4JaGeFUxjM-HeS7Oc-SSFcg/shutterstock_386664337.jpg?format=2500w");
+    background-image:linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url("https://images.squarespace-cdn.com/content/v1/5ad62e3aec4eb7c4b00e03a0/1587597185912-6KN9KSVI4T2JUJYQ8D8T/ke17ZwdGBToddI8pDm48kFmfxoboNKufWj-55Bgmc-J7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0iXS6XmVv7bUJ418E8Yoc1hjuviiiZmrL38w1ymUdqq4JaGeFUxjM-HeS7Oc-SSFcg/shutterstock_386664337.jpg?format=2500w");
   }
   
   .card-signin {
@@ -111,7 +111,7 @@
   .big-text {
     font-size: 60px;
     margin: 20px 0;
-    color: darkblue
+    color: white
 
   }
 
@@ -135,5 +135,18 @@
     background-color: lightblue;
     color: #000; 
   } 
+
+  a.btn-third 
+  {
+    background-color: lightblue;
+    color: #000;
+  }
+
+  #section-a {
+    padding:50px; 
+    background: white;
+    color: black;
+    text-align: center;
+  }
   
  

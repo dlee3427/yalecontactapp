@@ -1,7 +1,16 @@
-<h2><%= @user.name %></h2>
+<body>
+    
+    <section id="section-a">
+        <h2><%=@user.name%>'s Test Results</h2>
+    </section>
 
-<%= form_with url: "/logout", method: "delete" do |f| %>
 
-    <%= f.submit "Logout" %>
+    <div class="form-group row">
+        <div class="col-md-12 text_center">
+            <%= form_with url: "/logout", method: "delete" do |f| %>
+                <%= f.submit "Logout"  %>
+            <% end %>
+        </div>
+    </div>
 
-<% end %>
+</body>
