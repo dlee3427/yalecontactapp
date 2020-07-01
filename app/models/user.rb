@@ -10,12 +10,12 @@ class User < ApplicationRecord
 
     has_secure_password
 
-    # returns the most recent negative test
+    # returns the user's most recent negative test
     def last_negative_test
         self.tests.where({result: "positive"}).order(date: :desc).first
     end
 
-    # returns the most recent test
+    # returns the user's most recent test
     def last_test
         self.tests.order(date: :desc).first
     end
