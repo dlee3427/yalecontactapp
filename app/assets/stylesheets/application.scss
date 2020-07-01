@@ -143,27 +143,22 @@
     color: #000;
   }
 
-  #section-a {
-    text-align: center;
-    color: white
-  }
+  
+
 
   #section-b {
-    border: 1px solid black;
-    padding: 40px 10px 75px 10px;
+    margin: auto;
     text-align: center;
-    background-color: white;
     color: black;
-    
+    border-radius: 25px;
+    background: white;
+    padding: 100px; 
+    width:1000px;
+    height: 750px; 
   }
 
-  #section-c {
-    padding: 25px 50px 75px 100px;
-    text-align: center;
-    background-color: white;
-    color: black;
-  }
 
   .custom-select{
     position: relative; 
   }
+

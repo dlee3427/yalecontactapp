@@ -1,21 +1,25 @@
 <body>
     <section class="py-5">
         <div class="container">
-        <div class="row">
         </div >
     </section>
 
-    <section id="section-a">
-        <h2><%=@user.name%>'s Test Results</h2>
-        <p></p>
-    </section>
-
     <section id="section-b">
-        <p></p>
-        <%= form_with url: "/logout", method: "delete" do |f| %>
-            <%= f.submit "Logout"  %>
-        <% end %>
+        <div class="container">
+            <h2><%=@user.name%>'s Test Results</h2>
+        </div>
+        <div class="container">  
+            <h5>Residential College: <%= @user.res_college%></h5>
+        </div>
+
+        <div class="container">
+            <h5>Class Year: <%= @user.class_year%></h5>
+        </div>
+
+        <div class="container">
+            <%= form_with url: "/logout", method: "delete" do |f| %>
+                <%= f.submit "Logout"  %>
+            <% end %>
+        </div>
     </section>
-
-
 </body>
