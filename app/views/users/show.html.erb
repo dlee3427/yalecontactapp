@@ -9,12 +9,36 @@
             <h2><%=@user.name%>'s Test Results</h2>
         </div>
         <div class="container">  
-            <h5>Residential College: <%= @user.res_college%></h5>
+            <h5>Residential College: <%= @user.res_college.name %></h5>
         </div>
 
         <div class="container">
             <h5>Class Year: <%= @user.class_year%></h5>
         </div>
+        
+        <div class="container">
+            <h5>All Visits:</h5>
+            <ul>
+            <% @user.visits.each do |v| %>
+                <li><%= v.location.name %></li>
+            <% end %>
+            </ul>
+        </div>
+
+        <div class="container">
+            <h5>Test History</h5>
+            <ul>
+            <% @user.tests.each do |t| %>
+                <li>
+                    <%= link_to t.date, test_path(@user) %>
+                    <%= t.facility %></p>
+                    <%= t.result %></p>
+                </li>
+            <% end %>
+            </ul>
+        </div>
+
+        <a class="btn btn-first" href="/tests/new">Test Form</a>
 
         <div class="container">
             <%= form_with url: "/logout", method: "delete" do |f| %>

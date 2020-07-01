@@ -12,10 +12,7 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   delete "/logout", to: "sessions#destroy"
 
-  get '/test' => 'tests#new'
-  post '/test' => 'tests#create'
-
-  
+  resources :tests, only: [:show, :new, :create]
 
   
 

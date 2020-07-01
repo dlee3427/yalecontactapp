@@ -25,7 +25,10 @@
                     <%= f.collection_select :res_college_id, @colleges, :id, :name %><br>
 
                     <%= f.label :class_year %>
-                    <%= f.text_field :class_year, class: 'form-control'%><br>
+                    <%= f.select :class_year, ['2021', '2022', '2023', '2024', 'Professor', 'Faculty Member']%><br>
+
+                    <%= f.label :type %>
+                    <%= f.select :type, ['student', 'faculty'] %>
 
                     <hr class="my-4">
                     

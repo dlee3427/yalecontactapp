@@ -61,3 +61,7 @@ end
         end_time: end_time
     )
 end
+
+f1 = Facility.new(name: "Yale Visitor Testing Center")
+f2 = Facility.new(name: "Old Campus Testing Center")
+f3 = Facility.new(name: "Science Hill Testing Center")

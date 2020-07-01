@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_30_195358) do
+ActiveRecord::Schema.define(version: 2020_07_01_153903) do
 
   create_table "facilities", force: :cascade do |t|
     t.string "name"
@@ -34,16 +34,17 @@ ActiveRecord::Schema.define(version: 2020_06_30_195358) do
   create_table "tests", force: :cascade do |t|
     t.integer "user_id"
     t.datetime "date"
-    t.boolean "result"
+    t.boolean "positive_result"
     t.integer "facility_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "result"
   end
 
   create_table "transmissions", force: :cascade do |t|
     t.integer "origin_id"
-    t.integer "new_patient_id"
-    t.integer "location_id"
+    t.integer "spreader_id"
+    t.integer "infectee_id"
     t.datetime "date"
     t.boolean "confirmed"
     t.datetime "created_at", precision: 6, null: false
@@ -54,7 +55,7 @@ ActiveRecord::Schema.define(version: 2020_06_30_195358) do
     t.string "name"
     t.integer "class_year"
     t.integer "res_college_id"
-    t.string "type"
+    t.string "user_type"
     t.boolean "contagious"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
