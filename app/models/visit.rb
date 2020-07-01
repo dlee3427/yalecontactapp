@@ -2,10 +2,7 @@ class Visit < ApplicationRecord
     belongs_to :user
     belongs_to :location
 
-    # finds all overlapping visits at the same location
-    def simultaneous_visits
-        #TODO
-    end
+    after_create :check_if_exposure, :check_if_contagious
 
     # called when a simultaneous visit is upgraded to contagious, or upon initialization if a simultaneous visit is contagious
     # updates a visit to an exposure, notifies user
@@ -31,6 +28,29 @@ class Visit < ApplicationRecord
 
     # returns the probability of contracting the virus through the visit based on visit duration and the historical exposure risk of the location
     def exposure_risk
+        #TODO
+    end
+
+    private
+
+    # called after initialization
+    # updates self to an exposure if any simultaneous visits are contagious
+    def check_if_exposure
+        if self.simultaneous_visits.any? {|visit| visit.contagious}
+            self.update_to_exposure
+        end
+    end
+
+    # called after initialization
+    # updates self to contagious if its user is contagious
+    def check_if_contagious
+        if self.user.contagious?
+            self.update_to_contagious
+        end
+    end
+
+    # finds all overlapping visits at the same location
+    def simultaneous_visits
         #TODO
     end
 
