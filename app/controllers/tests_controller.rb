@@ -4,12 +4,6 @@ class TestsController < ApplicationController
         @test = Test.new
     end 
 
-<<<<<<< HEAD
-    def create 
-        @test.user = User.find(session[:user_id])
-        @test = Test.create(test_params)
-        @test.save         
-=======
     # User inputs a new test
     def create
         # instantiate the test with its details
@@ -22,6 +16,7 @@ class TestsController < ApplicationController
         if @test.result == 'positive'
             # updates the user's new visits as contagious
             @test.user.update_new_visits_as_contagious
+            @test.save
 
             # if it's the user's first positive test
             if @test.user.last_result == 'negative'
@@ -34,7 +29,6 @@ class TestsController < ApplicationController
         @test.save
         
         #redirect to user show page
->>>>>>> 533fe82f16f57c12a11331eac97a20cf64e1ae84
         redirect_to user_path(@test.user)
     end 
 

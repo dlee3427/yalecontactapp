@@ -5,9 +5,9 @@ class VisitsController < ApplicationController
     end 
 
     def create 
-
-        @visit.user = User.find(session[:user_id])
-        @visit.save 
+        @visit = Visit.new(visit_params)
+        @visit.user = User.find_by(session[:user_id])
+        @visit.save
         redirect_to user_path(@visit.user)
     end 
 
@@ -16,8 +16,9 @@ class VisitsController < ApplicationController
     def visit_params
         params.require(:visit).permit(
             :location_id,
-            :start_time
-
+            :start_time,
+            :end_time,
+            :contagious
         )
     end 
 
