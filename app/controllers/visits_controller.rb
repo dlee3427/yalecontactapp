@@ -15,6 +15,7 @@ class VisitsController < ApplicationController
 
     def visit_params
         params.require(:visit).permit(
+            :user_id,
             :location_id,
             :start_time,
             :end_time,
@@ -24,3 +25,6 @@ class VisitsController < ApplicationController
 
 
 end 
+
+
+
