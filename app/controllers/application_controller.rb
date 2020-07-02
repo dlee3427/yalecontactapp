@@ -1,27 +1,12 @@
 class ApplicationController < ActionController::Base
 
-    before_action :authenticated, only: [:current_user, :logged_in?]
+    before_action :require_login
     
-    def index 
-
-    end 
-
-    def show 
-        
-    end 
-    
-    def current_user 
+    def require_login
         if session[:user_id]
             current_user = User.find(session[:user_id])
+        else
+            redirect_to login_path
         end
     end 
-
-    def logged_in?
-        !!current_user 
-    end 
-
-    def authenticated 
-        redirect_to "/login" unless logged_in?
-    end 
-
 end

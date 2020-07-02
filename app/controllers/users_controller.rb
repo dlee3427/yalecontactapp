@@ -1,6 +1,6 @@
 class UsersController < ApplicationController 
 
-    skip_before_action :authenticated, only: [:new, :create]
+    skip_before_action :require_authorization, only: [:new, :create]
 
     def new
         @user = User.new 
@@ -12,14 +12,13 @@ class UsersController < ApplicationController
 
         if @user.valid? 
             @user.save 
-            redirect_to @user
+            redirect_to register_path
         else 
-            redirect_to "/signup"
+            redirect_to user_path
         end 
     end 
 
-    def show 
-        @user = User.find(params[:id])
+    def show
     end 
 
     private 

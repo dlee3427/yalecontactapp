@@ -1,5 +1,6 @@
 class TestsController < ApplicationController 
 
+    before_action :find_user, only: [:new, :create]
     def new 
         @test = Test.new
     end 
@@ -8,9 +9,9 @@ class TestsController < ApplicationController
     def create
         # instantiate the test with its details
         @test = Test.new(test_params)
-        
-        # associate the test with its user
-        @test.user = User.find(session[:user_id])
+
+        # associate the test with the currently logged in user
+        @test.user = @user
 
         # if a user submits a positive test
         if @test.result == 'positive'
@@ -45,7 +46,11 @@ class TestsController < ApplicationController
             :facility_id,
             :result
         )
-    end 
+    end
+
+    def find_user
+        @user = User.find(session[:user_id])
+    end
 
 end 
 
