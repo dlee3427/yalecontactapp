@@ -26,7 +26,7 @@
 
         <div class="container">
             <a href="/tests"><h5>Recent Tests</h5></a>
-            <% @user.tests.limit(5).sort_by(&:date).each do |t| %>
+            <% @user.tests.limit(5).order(date: :desc).each do |t| %>
                 <h6><%= t.date.strftime("(%a %m/%d/%y - %r)") %> Test Result: <%= t.result %> at <%= t.facility.name %></h6>
             <% end %>
         </div>
