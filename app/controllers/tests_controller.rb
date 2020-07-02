@@ -6,8 +6,8 @@ class TestsController < ApplicationController
     end 
 
     def create 
-        @test = Test.create(test_params)
         @test.user = User.find(session[:user_id])
+        @test = Test.create(test_params)
         @test.save         
         redirect_to user_path(@test.user)
     end 
