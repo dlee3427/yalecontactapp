@@ -7,7 +7,13 @@
         <div class="container">
             <h2><%= @test.user.name %>'s Test Result </h2>
         </div>
-        <%= @test.date - @test.result %>
+        <hr class="my-4">
+        <div class="container">
+            <h5>Time Taken: <%= @test.date %></h5><br>
+        </div>
+        <div class="container">
+            <h5>Result: <%= @test.result %></h5><br>
+        </div>
     </section>
 </section >
 
