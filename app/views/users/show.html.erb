@@ -6,7 +6,7 @@
 
     <section id="section-b">
         <div class="container">
-            <h2><%=@user.name%>'s Test Results</h2>
+            <h2><%=@user.name%>'s Profile</h2>
         </div>
         <div class="container">  
             <h5>Residential College: <%= @user.res_college.name %></h5>
@@ -15,22 +15,21 @@
         <div class="container">
             <h5>Class Year: <%= @user.class_year%></h5>
         </div>
+
+        <div class="container">
+            <h5>User: <%=@user.user_type %></h5>
+        </div>
         
         <div class="container">
-            <h5>All Visits:</h5>
-            <ul>
-            <% @user.visits.each do |v| %>
-                <li><%= v.location.name %></li>
-            <% end %>
-            </ul>
+            <a href=""><h5>All Visits</h5></a>
         </div>
 
         <div class="container">
-            <h5>Test History</h5>
-        
-            <% @user.tests.each do |t| %>
-                <%= t.date  %>
-            <% end %>
+            <h5>Recent Tests</h5>
+            <ul>
+                <% @user.tests.limit(5).each do |t| %>
+                    <li><%= link_to t.date, test_path(t) %></li>
+                <% end %>
             </ul>
         </div>
 

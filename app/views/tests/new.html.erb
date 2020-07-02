@@ -5,15 +5,17 @@
             <div class="card-body">
                 <h5 class="card-title text-center">Test Results</h5>
                 <%= form_with model: @test do |f| %>
+                    <%= f.label :your_name %>
+                    <%= f.collection_select :user_id, User.all, :id, :name, { include_blank: false }, {class: 'form-control'} %><br>
 
                     <%= f.label :date %><br>
                     <%= f.date_field :date, class: 'form-control'%><br>
                                 
+                    <%= f.label :test_result %><br>
+                    <%= f.text_field :result, class: 'form-control' %><br>
+
                     <%= f.label :facility %><br>
-                    <%= f.collection_select :facility_id, Facility.all, :id, :name %><br>
-                                        
-                    <%= f.label :result %><br>
-                    <%= f.text_field :result %><br>
+                    <%= f.collection_select :facility_id, Facility.all, :id, :name, { include_blank: false }, {class: 'form-control'} %><br>
 
                     <hr class="my-4">
                     

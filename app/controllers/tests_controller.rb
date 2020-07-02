@@ -40,6 +40,7 @@ class TestsController < ApplicationController
 
     def test_params 
         params.require(:test).permit(
+            :user_id,
             :date,
             :facility_id,
             :result

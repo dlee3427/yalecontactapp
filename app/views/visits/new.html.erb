@@ -7,8 +7,11 @@
                      
                         
                             <%= form_with model: @visit do |v| %>
+                                <%= v.label :your_name %>
+                                <%= v.collection_select :user_id, User.all, :id, :name, { include_blank: false }, {class: 'form-control'}%><br>
+
                                 <%= v.label :location %>
-                                <%= v.collection_select :location_id, Location.all, :id, :name %><br>
+                                <%= v.collection_select :location_id, Location.all, :id, :name,{ include_blank: false }, {class: 'form-control'} %><br>
 
                                 <%= v.label :start_time %>
                                 <%= v.datetime_field :start_time, class: "form-control"%><br>
@@ -17,7 +20,7 @@
                                 <%= v.datetime_field :end_time, class: "form-control" %><br>
 
                                 <%= v.label :contagious? %>
-                                <%= v.select :contagious, ["true", "false"]%><br>
+                                <%= v.select :contagious, ["True", "False"], { include_blank: false }, {class: 'form-control'} %><br>
 
                                 <hr class="my-4">
 

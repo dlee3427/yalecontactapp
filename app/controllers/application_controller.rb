@@ -5,6 +5,10 @@ class ApplicationController < ActionController::Base
     def index 
 
     end 
+
+    def show 
+        
+    end 
     
     def current_user 
         if session[:user_id]
