@@ -33,9 +33,6 @@ class TestsController < ApplicationController
         redirect_to user_path(@test.user)
     end 
 
-    def show 
-        @test = Test.find_by(params[:id])
-    end 
 
     private 
 
