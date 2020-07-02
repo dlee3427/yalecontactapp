@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root to: "static#index"
   
-  get '/analytics' => "static#show" as: "analytics"
-  get '/register' => 'users#new' as: "register"
+  get '/analytics' => "static#show", as: "analytics"
+  get '/register' => 'users#new', as: "register"
   post '/register' => 'users#create'
   get '/profile' => 'users#show', as: "user"
 
