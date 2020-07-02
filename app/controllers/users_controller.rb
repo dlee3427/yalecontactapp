@@ -1,6 +1,6 @@
 class UsersController < ApplicationController 
 
-    skip_before_action :require_authorization, only: [:new, :create]
+    skip_before_action :require_login, only: [:new, :create]
 
     def new
         @user = User.new 
@@ -11,10 +11,15 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
 
         if @user.valid? 
-            @user.save 
-            redirect_to register_path
+            @user.save
+
+            #logs user in
+            session[:user_id] = @user.id
+
+            flash[:notice] = "To participate in Yale's contact tracing program, you must first submit a test result."
+            redirect_to new_test_path
         else 
-            redirect_to user_path
+            redirect_to register_path
         end 
     end 
 
@@ -24,7 +29,7 @@ class UsersController < ApplicationController
     private 
 
     def user_params 
-        params.permit(
+        params.require(:user).permit(
             :name, 
             :email, 
             :password, 

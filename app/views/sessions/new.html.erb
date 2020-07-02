@@ -12,6 +12,12 @@
               <div class="form-label-group">
                   <%= form_with url: '/login', method: "post" do |f| %>
 
+                  <% if flash[:error] %>
+                    <div class="alert alert-danger" role="alert">
+                      <%= flash[:error] %>
+                    </div>
+                  <% end %>
+
                   <label> Email: </label>
                   <%= f.email_field :email, class: 'form-control' %>
 
@@ -25,6 +31,8 @@
                       <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
                   </div>
+
+                  <br>Don't have an account? <%= link_to "Register here.", register_path %>
                   <% end %>
               </div>
           </div>

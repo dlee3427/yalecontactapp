@@ -1,9 +1,16 @@
 <body>
     <div class="row">
       <div class="col-lg-10 col-xl-5 mx-auto">
+        <% if flash[:notice] %>
+          <div class="alert alert-primary" role="alert">
+            <%= flash[:notice] %>
+          </div>
+        <% end %>
+
         <div class="card card-signin flex-row my-5">
             <div class="card-body">
                 <h5 class="card-title text-center">New Test Result for <b><%= @user.name %></b></h5>
+            
                 <%= form_with model: @test do |f| %>
 
                     <%= f.label :date %><br>
