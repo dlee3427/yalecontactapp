@@ -4,20 +4,16 @@ Rails.application.routes.draw do
   
   get '/analytics' => "static#show", as: "analytics"
   get '/register' => 'users#new', as: "register"
-  post '/register' => 'users#create'
   get '/profile' => 'users#show', as: "user"
 
   get '/login' => 'sessions#new', as: "login"
   post '/login' => 'sessions#create'
   delete "/logout", to: "sessions#destroy", as: "logout"
 
+  resources :users, only: [:create]
   resources :tests, only: [:show, :new, :create]
   resources :visits, only: [:show, :new, :create]
 
-
-  
-
-  
 
 
 end

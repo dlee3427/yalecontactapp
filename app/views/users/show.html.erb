@@ -28,7 +28,7 @@
         <div class="container">
             <h5>Recent Tests</h5>
             <% @user.tests.limit(5).each do |t| %>
-                <%= link_to t.date, test_path(t) %>
+                <%= link_to t.date, t %>
             <% end %>
         </div>
 

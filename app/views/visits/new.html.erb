@@ -19,8 +19,12 @@
                                 <%= v.label :end_time %>
                                 <%= v.datetime_field :end_time, class: "form-control" %><br>
 
-                                <%= v.label :contagious? %>
-                                <%= v.select :contagious, ["True", "False"], { include_blank: false }, {class: 'form-control'} %><br>
+                                <%= v.label :contagious, "Are you contagious for SARS-CoV-2?" %>
+                                <select class="form-control" name="visit[contagious]" id="visit_contagious">
+                                    <option selected="true" disabled="disabled">-</option>  
+                                    <option value="true">Contagious</option>
+                                    <option value="false">Not contagious</option>
+                                </select><br>
 
                                 <hr class="my-4">
 
