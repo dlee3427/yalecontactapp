@@ -21,7 +21,7 @@ class Visit < ApplicationRecord
         # sets itself as contagious
         self.update(exposure: true)
         # updates all of its simultaneous visits to exposures
-        self.simultaneous_visits.each do |visit|
+        simultaneous_visits.each do |visit|
             visit.update_to_exposure
         end
     end
@@ -31,13 +31,31 @@ class Visit < ApplicationRecord
         #TODO
     end
 
+    def generate_transmissions
+        simultaneous_visits.each do |contact|
+            # if a contact was contagious
+            if contact.contagious
+                # create a possible transmission
+                Transmission.create(
+                    location: self.location,
+                    spreader: contact.user,
+                    infectee: self.user,
+                    # assume that transmission occured at the earliest time that the two users were at the same location
+                    date: [self.start_time, contact.start_time].max
+                )
+            end
+        end
+    end
+
     private
 
     # called after initialization
     # updates self to an exposure if any simultaneous visits are contagious
     def check_if_exposure
-        if self.simultaneous_visits.any? {|visit| visit.contagious}
+        if simultaneous_visits.any? {|visit| visit.contagious}
             self.update_to_exposure
+        else
+            self.exposure = false
         end
     end
 
@@ -46,12 +64,18 @@ class Visit < ApplicationRecord
     def check_if_contagious
         if self.user.contagious?
             self.update_to_contagious
+        else
+            self.contagious = false
         end
     end
 
     # finds all overlapping visits at the same location
     def simultaneous_visits
-        #TODO
+        # select all visits at the same location
+        Visit.where(location: self.location).select do |visit|
+            # check if the start/end time ranges overlap
+            (self.start_time..self.end_time).overlaps?(visit.start_time..visit.end_time)
+        end
     end
 
 end
