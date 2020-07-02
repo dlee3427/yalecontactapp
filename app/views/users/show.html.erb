@@ -16,19 +16,18 @@
         <div class="container">
             <h5>Class Year: <%= @user.class_year%></h5>
         </div>
-
-        <div class="container">
-            <h5>User: <%=@user.user_type %></h5>
-        </div>
         
         <div class="container">
-            <a href=""><h5>All Visits</h5></a>
+            <a href="/visits"><h5>Recent Visits</h5></a>
+            <% @user.visits.limit(5).each do |t| %>
+                <h6><%= t.location.name %> (<%= t.location.building%>)</h6>
+            <% end %>
         </div>
 
         <div class="container">
-            <h5>Recent Tests</h5>
-            <% @user.tests.limit(5).each do |t| %>
-                <%= link_to t.date, t %>
+            <a href="/tests"><h5>Recent Tests</h5></a>
+            <% @user.tests.limit(5).sort_by(&:date).each do |t| %>
+                <h6><%= t.date.strftime("(%a %m/%d/%y - %r)") %> Test Result: <%= t.result %> at <%= t.facility.name %></h6>
             <% end %>
         </div>
 
