@@ -3,16 +3,18 @@
       <div class="col-lg-10 col-xl-5 mx-auto">
         <div class="card card-signin flex-row my-5">
             <div class="card-body">
-                <h5 class="card-title text-center">Test Results</h5>
+                <h5 class="card-title text-center">New Test Result for <b><%= @user.name %></b></h5>
                 <%= form_with model: @test do |f| %>
-                    <%= f.label :your_name %>
-                    <%= f.collection_select :user_id, User.all, :id, :name, { include_blank: false }, {class: 'form-control'} %><br>
 
                     <%= f.label :date %><br>
                     <%= f.date_field :date, class: 'form-control'%><br>
                                 
-                    <%= f.label :test_result %><br>
-                    <%= f.text_field :result, class: 'form-control' %><br>
+                    <%= f.label :result, "Test Result" %><br>
+                    <select class="form-control" name="test[result]" id="test_result">
+                      <option selected="true" disabled="disabled">-</option>  
+                      <option value="positive">Positive for SARS-CoV-2</option>
+                      <option value="negative">Negative for SARS-CoV-2</option>
+                    </select><br>
 
                     <%= f.label :facility %><br>
                     <%= f.collection_select :facility_id, Facility.all, :id, :name, { include_blank: false }, {class: 'form-control'} %><br>

@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController 
     
-    skip_before_action :authenticated, only: [:new, :create]
+    skip_before_action :require_login, only: [:new, :create]
 
     def new 
 
@@ -10,19 +10,20 @@ class SessionsController < ApplicationController
         @user = User.find_by(email: params[:email])
         if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id
-            redirect_to @user 
-        else 
-            redirect_to "/login"
+            redirect_to user_path
+        elsif !@user
+            flash[:error] = "The email you entered is not registered."
+            redirect_to login_path
+        else
+            flash[:error] = "The password you entered is incorrect."
+            redirect_to login_path
         end 
     end 
 
 
     def destroy 
-        session.delete(:user_id)
-        redirect_to "/login"
+        reset_session
+        redirect_to root_path
     end 
-
-    private 
-
 
 end 

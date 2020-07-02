@@ -18,10 +18,10 @@
                     <%= f.label :password %>
                     <%= f.password_field :password, class: 'form-control' %><br>
                                         
-                    <%= f.label :password_confirmation %>
+                    <%= f.label :password_confirmation, "Confirm Password" %>
                     <%= f.password_field :password_confirmation, class: 'form-control'%><br>
                                         
-                    <%= f.label :res_college %>
+                    <%= f.label :res_college, "Residential College" %>
                     <%= f.collection_select :res_college_id, @colleges, :id, :name, { include_blank: false }, {class: 'form-control'} %><br>
 
                     <%= f.label :class_year %>
