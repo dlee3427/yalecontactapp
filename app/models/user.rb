@@ -30,18 +30,17 @@ class User < ApplicationRecord
         self.visits.where("date > ?", date)
     end
    
-    # called when a user tests positive
+    # called when a user submits their first positive test
     # creates instances of Transmission for where, when, and from whom the user may have contracted the virus in the past two weeks
-    def find_possible_transmissions(test)
-        self.visits_after(test.date - 14.days).where({exposure: true}).each do |visit|
-            #TODO - figure out parameters for 
-            Transmission.create(
-
-            )
+    def find_possible_transmissions
+        # gets all exposures in the past 14 days before the last negative test
+        self.visits_after(self.last_test.date - 14.days).where({exposure: true}).each do |visit|
+            # for each exposure, generate transmissions based on the simultaneous vists that were contagious
+            visit.generate_transmissions         
         end
     end
 
-    # called when a user tests positive
+    # called when a user submits a positive test
     # updates all of the user's visits since their last test result to contagious
     def update_new_visits_as_contagious
         self.visits_after(self.last_test.date).each do |visit|

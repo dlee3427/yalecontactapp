@@ -12,24 +12,45 @@
     ResCollege.create(name: rc)
 end
 
-# generates 10 random users
-10.times do
-    User.create(
-        name: Faker::Name.name,
-        class_year: rand(2021..2024),
-        res_college: ResCollege.all.sample,
-        user_type: ["student", "student", "faculty"].sample
-    )
-end
+# generates test facilities
+f1 = Facility.create(name: "Yale Visitor Testing Center")
+f2 = Facility.create(name: "Old Campus Testing Center")
+f3 = Facility.create(name: "Science Hill Testing Center")
 
 # generates locations
 toads = Location.create(name: "Toad's Place", building: "Off-Campus")
 sss = Location.create(name: "SSS 114", building: "SSS")
 dorm = Location.create(name: "ES-A22", building: "Ezra Stiles College")
 
+# generates 10 random users
+10.times do
+    User.create(
+        name: Faker::Name.name,
+        class_year: rand(2021..2024),
+        res_college: ResCollege.all.sample,
+        user_type: ["student", "student", "faculty"].sample,
+        password: "password"
+    )
+end
+
+puts "User Count:"
+puts User.all.count
 # defines a 3 day period containing all of the seed data
 first_day = Time.new(2020, 9, 1)
 last_day = first_day + 3.days
+
+# generates a negative test for each user
+User.all.each do |user|
+    Test.create(
+        user: user,
+        date: first_day,
+        result: 'negative',
+        facility: Facility.all.sample
+    )
+end
+
+puts "Test Count:"
+puts Test.all.count
 
 # generates 100 random visits to toad's place at night between 2-3 hours long
 100.times do
@@ -66,7 +87,3 @@ end
         end_time: end_time
     )
 end
-
-f1 = Facility.new(name: "Yale Visitor Testing Center")
-f2 = Facility.new(name: "Old Campus Testing Center")
-f3 = Facility.new(name: "Science Hill Testing Center")
