@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     def create 
         @user = User.new(user_params)
 
-        if @user.valid? 
+        if @user && @user.valid? 
             @user.save
 
             #logs user in
@@ -18,9 +18,11 @@ class UsersController < ApplicationController
 
             flash[:notice] = "To participate in Yale's contact tracing program, you must first submit a test result."
             redirect_to new_test_path
-        else 
-            redirect_to register_path
+        elsif !@user
+            flash[:notice] = "Invalid Form! Please submit again."
+            redirect_to "/register" and return
         end 
+
     end 
 
 
@@ -33,7 +35,8 @@ class UsersController < ApplicationController
             :password, 
             :password_confirmation,
             :class_year,
-            :res_college_id
+            :res_college_id,
+            :user_type
         )
     end 
 

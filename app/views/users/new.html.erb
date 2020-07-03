@@ -8,6 +8,11 @@
           </div>
           <div class="card-body">
             <h5 class="card-title text-center">Register</h5>
+                <% if flash[:notice] %>
+                  <div class="alert alert-danger" role="alert">
+                    <%= flash[:notice] %>
+                  </div>
+                <% end %>
                 <%= form_with model: @user do |f| %>
                     <%= f.label :name %>
                     <%= f.text_field :name, class: 'form-control'%><br>
