@@ -5,21 +5,26 @@
         <section id="section-c">
             <div class="container">
                 <h2>Yale COVID-19 Analytics</h2>
-                <hr class="my-4">
+
             </div>
-            <div class="row">
-                <h5>Total Transmissions on Campus: <%= %></h5>           
-            </div>
-            <div class="row">
-                <h5>Active Cases on Campus: </h5>
-            </div>
-            <div class="row">
-                <h5>Number of Tests conducted: </h5>
-            </div>
-            <hr class="my-4">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Total Transmissions</th>
+                        <th scope="col">Active Cases</th>
+                        <th scope="col">Number of Tests </th>
+                    </tr>
+                <thead>
+                <tbody>
+                        <td><h5><%= Transmission.all.length %></h5></td>
+                        <td><h5><%= %></h5></td>
+                        <td><h5><%= Test.all.length %></h5></td>
+                </tbody>
+            </table>
+
+        
             <div class="container">
-                <h5>Testing Facilities in New Haven</h5>
-                
+                <h3>High Risk Locations</h3>
             </div>  
 
             <div id="map"></div>
