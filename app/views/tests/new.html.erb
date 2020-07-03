@@ -14,7 +14,7 @@
                 <%= form_with model: @test do |f| %>
 
                     <%= f.label :date %><br>
-                    <%= f.date_field :date, class: 'form-control'%><br>
+                    <%= f.datetime_field :date, class: 'form-control'%><br>
                                 
                     <%= f.label :result, "Test Result" %><br>
                     <select class="form-control" name="test[result]" id="test_result">
