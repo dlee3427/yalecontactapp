@@ -30,7 +30,7 @@
                     <%= f.collection_select :res_college_id, @colleges, :id, :name, { include_blank: false }, {class: 'form-control'} %><br>
 
                     <%= f.label :class_year %>
-                    <%= f.select :class_year, ['2021', '2022', '2023', '2024', 'Professor', 'Faculty Member'], { include_blank: false }, {class: 'form-control'} %><br>
+                    <%= f.select :class_year, ['2021', '2022', '2023', '2024', 'N/A'], { include_blank: false }, {class: 'form-control'} %><br>
 
                     <%= f.label :user_type %>
                     <%= f.select :user_type, ['Student', 'Faculty'], { include_blank: false }, {class: 'form-control'} %>

@@ -39,7 +39,7 @@ end
 puts "User Count:"
 puts User.all.count
 # defines a 3 day period containing all of the seed data
-first_day = Time.new(2020, 9, 1)
+first_day = Time.new(2019, 9, 1)
 last_day = first_day + 3.days
 
 # generates a negative test for each user
@@ -119,6 +119,38 @@ david = User.create(
 Test.create(
     user: david,
     date: first_day,
+    result: 'negative',
+    facility: Facility.all.sample
+)
+
+pete = User.create(
+    name: "Pete Salovey",
+    email: "pete.salovey@yale.edu",
+    class_year: "N/A",
+    res_college: ResCollege.all.sample,
+    user_type: "Faculty",
+    password: "password"
+)
+
+Test.create(
+    user: pete,
+    date: Time.new(2020, 8, 31),
+    result: 'negative',
+    facility: Facility.all.sample
+)
+
+chun = User.create(
+    name: "Marvin Chun",
+    email: "marvin.chun@yale.edu",
+    class_year: "N/A",
+    res_college: ResCollege.all.sample,
+    user_type: "Faculty",
+    password: "password"
+)
+
+Test.create(
+    user: chun,
+    date: Time.new(2020, 8, 31),
     result: 'negative',
     facility: Facility.all.sample
 )

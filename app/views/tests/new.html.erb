@@ -6,7 +6,7 @@
             <div class="card-body">
                 <h5 class="card-title text-center">New Test Result for <b><%= @user.name %></b></h5>
                  <% if flash[:notice] %>
-                  <div class="alert alert-danger" role="alert">
+                  <div class="alert alert-primary" role="alert">
                     <%= flash[:notice] %>
                   </div>
                 <% end %>
