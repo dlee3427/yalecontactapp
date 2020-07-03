@@ -47,6 +47,11 @@ class Visit < ApplicationRecord
         end
     end
 
+    # formats start/end times nicely
+    def dates_to_s
+        self.start_time.to_s(:time) + " - " + self.end_time.to_s(:time)
+    end
+
     private
 
     # called after initialization

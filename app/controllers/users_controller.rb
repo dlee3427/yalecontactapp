@@ -22,8 +22,17 @@ class UsersController < ApplicationController
             flash[:notice] = "Invalid Form! Please submit again."
             redirect_to "/register" and return
         end 
+<<<<<<< HEAD
 
     end 
+=======
+    end
+
+    def show
+        @recent_visits = @user.visits.order(start_time: :desc).limit(5)
+        @recent_tests = @user.tests.order(start_time: :desc).limit(5)
+    end
+>>>>>>> de389ea9aa95fb1bd84b1956024e1b0ed44d55f7
 
 
     private 
