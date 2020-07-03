@@ -7,22 +7,6 @@
     <section id="section-b">
         <div class="row">
 
-<<<<<<< HEAD
-        <div class="container">
-            <h5>Class Year: <%= @user.class_year%></h5>
-        </div>
-
-        <div class="container">
-            <h5>User Type: <%= @user.user_type%></h5>
-        </div>
-        
-        <div class="container">
-            <a href="/visits"><h5>Recent Visits</h5></a>
-            <% @user.visits.limit(5).order(start_time: :desc).each do |t| %>
-                <h6><%= t.location.name %> (<%= t.location.building%>) [<%=t.start_time.strftime("%m/%d/%y - %l:%M %p") %>] to [<%=t.end_time.strftime("%m/%d/%y - %l:%M %p")%>]</h6>
-            <% end %>
-        </div>
-=======
             <div class="col-5">
                 <div class="container">
                     <h2><%=@user.name%>'s Profile</h2>
@@ -31,7 +15,6 @@
                 <div class="container">  
                     <h5>Residential College: <%= @user.res_college.name %></h5>
                 </div>
->>>>>>> de389ea9aa95fb1bd84b1956024e1b0ed44d55f7
 
                 <div class="container">
                     <h5>Class Year: <%= @user.class_year%></h5>
