@@ -8,6 +8,8 @@ class StaticController < ApplicationController
     def show 
         @users = User.all
         @locations = Location.all
+        @active_cases = User.count{|user| user.contagious?}
+        @recovered_cases = User.count{|user| !user.contagious? && user.tests.any?{|test| test.result == "positive"}}
     end 
 
     
