@@ -7,32 +7,64 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
-        <div class="container">
-            <a class="navbar-brand" href="/">Yale COVID-19 Contact Tracing App</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-            <ul class="navbar-nav ml-auto">
-                <li class="nav-item active">
-                <a class="nav-link" href="/">Home
-                        <span class="sr-only">(current)</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="/register">Register</a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="/login">Log-In </a>
-                </li>
-                <li class="nav-item">
-                <a class="nav-link" href="/analytics">Analytics</a>
-                </li>
-            </ul>
+    <% if @user %>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="/">Yale COVID-19 Contact Tracing App</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                    <a class="nav-link" href="/profile">My Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="/visits">Visits</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="/tests">Tests</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="/analytics">Analytics</a>
+                    </li>
+                    <li class="nav_item">
+                        <div class="dropdown d-inline">
+                            <button class="btn btn-link dropdown-toggle" type="button" data-toggle="dropdown" id="accountMenu" aria-haspopup="true" aria-expanded="false">
+                                <%= @user.name %>
+                            </button>
+                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="accountMenu">
+                                <button class="dropdown-item disabled" type="button">Logged in as:</button>
+                                <button class="dropdown-item disabled" type="button"><%= @user.email %></button>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="/logout">Log Out</a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    <% else %>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light shadow fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="/">Yale COVID-19 Contact Tracing App</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                    <a class="nav-link" href="/register">Register</a>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="/login">Log-In </a>
+                    </li>
+                </ul>
+                </div>
+            </div>
+        </nav>
+    <% end %>
     <header class="masthead">
         <div class="container h-100">
             <div class="row h-100 align-items-center">
