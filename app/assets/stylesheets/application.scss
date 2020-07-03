@@ -174,4 +174,51 @@
   .custom-select{
     position: relative; 
   }
+
+  .myButton {
+    box-shadow:inset 1px -2px 20px -7px #29bbff;
+    background:linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
+    background-color:#2dabf9;
+    border-radius:17px;
+    border:1px solid #0b0e07;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:16px;
+    padding:13px 23px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #263666;
+  }
+  .myButton:hover {
+    background:linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
+    background-color:#0688fa;
+  }
+  .myButton:active {
+    position:relative;
+    top:1px;
+  }
   
+  .myButton-a {
+    box-shadow:inset 0px 1px 0px 0px #cf866c;
+    background:linear-gradient(to bottom, #d0451b 5%, #bc3315 100%);
+    background-color:#d0451b;
+    border-radius:21px;
+    border:2px solid #942911;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:13px;
+    padding:8px 15px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #854629;
+  }
+  .myButton:hover {
+    background:linear-gradient(to bottom, #bc3315 5%, #d0451b 100%);
+    background-color:#bc3315;
+  }
+  .myButton:active {
+    position:relative;
+    top:1px;
+  }
