@@ -17,15 +17,34 @@
                 <thead>
                 <tbody>
                         <td><h5><%= Transmission.all.length %></h5></td>
-                        <td><h5><%= %></h5></td>
+                        <td>
+                            <h5><%= @users.count {|user| user.contagious? }%></h5>
+                        </td>
                         <td><h5><%= Test.all.length %></h5></td>
                 </tbody>
             </table>
 
-        
             <div class="container">
-                <h3>High Risk Locations</h3>
+                <h2>High Risk Locations</h2>
             </div>  
 
-            <div id="map"></div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Locations</th>
+                        <th scope="col">Total Visits</th>
+                        <th scope="col">Total Transmissions </th>
+                    </tr>
+                <thead>
+                <tbody>
+                    <% @locations.each do |l| %>
+                        <tr>
+                            <td><h5><%= l.name %></h5></td>
+                            <td><h5><%= l.visits.count %></h5></td>
+                            <td><h5><%= l.transmissions.count %></h5></td>
+                        </tr>  
+                    <% end %>
+                </tbody>
+            </table>
+
         </section>
