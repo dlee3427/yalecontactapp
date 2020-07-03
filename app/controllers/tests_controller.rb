@@ -29,7 +29,7 @@ class TestsController < ApplicationController
             flash[:notice] = "You must submit a date!"
             redirect_to "/tests/new" and return
         else
-            flash[:notice] = "You must submit a test date!"
+            flash[:notice] = "You must submit a test result!"
             redirect_to "/tests/new" and return
         end
         # saves test to database
