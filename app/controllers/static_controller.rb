@@ -7,6 +7,7 @@ class StaticController < ApplicationController
 
     def show 
         @users = User.all
+        @locations = Location.all
     end 
 
     
