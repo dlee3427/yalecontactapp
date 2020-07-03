@@ -8,7 +8,7 @@ class User < ApplicationRecord
     has_many :spreaders, through: :contracting_transmissions
     has_many :infectees, through: :spreading_transmissions
 
-    # validates :name, :email, :password, :password_confirmation, :user_type, :res_college, :class_year, :user_type, presence: true
+    validates :name, :email, :res_college, :class_year, :user_type, presence: true
     has_secure_password
 
     # returns the user's most recent negative test

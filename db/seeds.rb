@@ -22,11 +22,13 @@ toads = Location.create(name: "Toad's Place", building: "Off-Campus")
 sss = Location.create(name: "SSS 114", building: "SSS")
 dorm = Location.create(name: "ES-A22", building: "Ezra Stiles College")
 
-=begin
 # generates 10 random users
 10.times do
+    rand_name = Faker::Name.name
+    rand_email = Faker::Internet.safe_email(name: rand_name)
     User.create(
-        name: Faker::Name.name,
+        name: rand_name,
+        email: rand_email,
         class_year: rand(2021..2024),
         res_college: ResCollege.all.sample,
         user_type: ["student", "student", "faculty"].sample,
@@ -88,5 +90,35 @@ end
         end_time: end_time
     )
 end
-=end
-0
+
+dave = User.create(
+    name: "David Yu",
+    email: "david.yu@yale.edu",
+    class_year: 2022,
+    res_college: ResCollege.all.sample,
+    user_type: "student",
+    password: "password"
+)
+
+Test.create(
+    user: dave,
+    date: first_day,
+    result: 'negative',
+    facility: Facility.all.sample
+)
+
+david = User.create(
+    name: "David Lee",
+    email: "david.lee.sl2634@yale.edu",
+    class_year: 2023,
+    res_college: ResCollege.all.sample,
+    user_type: "student",
+    password: "password"
+)
+
+Test.create(
+    user: david,
+    date: first_day,
+    result: 'negative',
+    facility: Facility.all.sample
+)
