@@ -21,7 +21,12 @@ class UsersController < ApplicationController
         else 
             redirect_to register_path
         end 
-    end 
+    end
+
+    def show
+        @recent_visits = @user.visits.order(start_time: :desc).limit(5)
+        @recent_tests = @user.tests.order(start_time: :desc).limit(5)
+    end
 
 
     private 

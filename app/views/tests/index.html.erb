@@ -1,0 +1,50 @@
+<body>
+    <section class="py-5">
+        <div class="container">
+        
+        </div >
+    </section>
+    
+    <section id="section-b">
+        <%= link_to "<< Back to profile", user_path %>
+
+        <br>
+
+        <div class="container">
+            <h2><%=@user.name%>'s Test History</h2>
+        </div>
+
+        <a class="btn btn-outline-primary" href="/tests/new">Submit a new test result</a>
+
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Test Date</th>
+                        <th scope="col">Time</th>
+                        <th scope="col">Facility</th>
+                        <th scope="col">Result</th>
+                    </tr>
+                <thead>
+                <tbody>
+                    <% @user.tests.each do |test| %>
+                        <tr>
+                            <% if test.result == "positive" %>
+                                <div style="color: red">
+                                <td><%= test.date.to_date %></td>
+                                <td><%= test.date.to_s(:time) %></td>
+                                <td><%= test.facility.name %></td>
+                                <td>Positive</td>
+                                <div>
+                            <% else %>
+                                <td><%= test.date.to_date %></td>
+                                <td><%= test.date.to_s(:time) %></td>
+                                <td><%= test.facility.name %></td>
+                                <td>Negative</td>
+                            <% end %>
+                        </tr>
+                    <% end %>
+                </tbody>
+        </div>
+    </section>
+</body>

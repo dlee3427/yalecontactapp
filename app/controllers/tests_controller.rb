@@ -33,6 +33,8 @@ class TestsController < ApplicationController
         redirect_to user_path(@test.user)
     end 
 
+    def index
+    end
 
     private 
 
