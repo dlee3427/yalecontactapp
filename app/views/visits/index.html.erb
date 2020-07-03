@@ -1,0 +1,51 @@
+<body>
+    <section class="py-5">
+        <div class="container">
+        
+        </div >
+    </section>
+    
+    <section id="section-b">
+        <%= link_to "<< Back to profile", user_path %>
+
+        <br>
+
+        <div class="container">
+            <h2><%=@user.name%>'s Contact History</h2>
+        </div>
+
+        <a class="btn btn-outline-primary" href="/visits/new">Record a new location</a>
+
+        <div class="container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Date</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">Start/End Time</th>
+                        <th scope="col">Exposure?</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <% @user.visits.each do |visit| %>
+                    <% if visit.exposure %>
+                        <tr style="background-color:#FF9999">
+                            <td><%= visit.start_time.to_date %></td>
+                            <td><%= visit.location.name %></td>
+                            <td><%= visit.times_to_s %></td>
+                            <td><b><%= link_to "Yes", visit_path(visit) %></b></td>
+                        </tr>
+                    <% else %>
+                        <tr>
+                            <td><%= visit.start_time.to_date %></td>
+                            <td><%= visit.location.name %></td>
+                            <td><%= visit.times_to_s %></td>
+                            <td>No</td>
+                        </tr>
+                    <% end %>
+                <% end %>
+                </tbody>
+            </table>
+        </div>
+    </section>
+</body>
