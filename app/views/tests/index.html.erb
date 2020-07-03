@@ -28,9 +28,9 @@
                         <th scope="col">Facility</th>
                         <th scope="col">Result</th>
                     </tr>
-                <thead>
+                </thead>
                 <tbody>
-                    <% @user.tests.each do |test| %>
+                    <% @tests.each do |test| %>
                             <% if test.result == "positive" %>
                                 <tr  style="background-color:#FF9999">
                                     <td><%= test.date.to_date %></td>

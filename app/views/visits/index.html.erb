@@ -30,7 +30,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                <% @user.visits.each do |visit| %>
+                <% @visits.each do |visit| %>
                     <% if visit.exposure %>
                         <tr style="background-color:#FF9999">
                             <td><%= visit.start_time.to_date %></td>

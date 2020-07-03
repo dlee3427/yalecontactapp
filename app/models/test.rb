@@ -4,4 +4,8 @@ class Test < ApplicationRecord
 
     validates :result, inclusion: { in: ["positive", "negative"]}
 
+    def index
+        @tests = @user.tests.order(date: :desc)
+    end
+
 end
