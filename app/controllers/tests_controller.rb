@@ -8,6 +8,7 @@ class TestsController < ApplicationController
     # User inputs a new test
     def create
         # instantiate the test with its details
+        last_test = @user.last_test
         @test = Test.new(test_params)
 
         # associate the test with the currently logged in user
@@ -20,9 +21,9 @@ class TestsController < ApplicationController
                 @test.save
 
                 # if it's the user's first positive test
-                if @test.user.last_test.result == 'negative'
+                if last_test.result == 'negative'
                     #identify possible transmissions from the last two weeks
-                    @test.user.find_possible_transmissions
+                    @test.user.find_possible_transmissions(last_test)
                 end
             end
         elsif !@test.date 
@@ -36,7 +37,7 @@ class TestsController < ApplicationController
         @test.save
         
         #redirect to user show page
-        redirect_to user_path(@test.user)
+        redirect_to user_path
     end 
 
     def index

@@ -22,6 +22,7 @@ toads = Location.create(name: "Toad's Place", building: "Off-Campus")
 sss = Location.create(name: "SSS 114", building: "SSS")
 dorm = Location.create(name: "ES-A22", building: "Ezra Stiles College")
 
+=begin
 # generates 10 random users
 10.times do
     User.create(
@@ -87,3 +88,5 @@ end
         end_time: end_time
     )
 end
+=end
+0

@@ -19,7 +19,7 @@ class Visit < ApplicationRecord
     # called on each of a user's recent visits when that user submits a positive test
     def update_to_contagious
         # sets itself as contagious
-        self.update(exposure: true)
+        self.update(contagious: true)
         # updates all of its simultaneous visits to exposures
         simultaneous_visits.each do |visit|
             visit.update_to_exposure
@@ -79,7 +79,9 @@ class Visit < ApplicationRecord
         # select all visits at the same location
         Visit.where(location: self.location).select do |visit|
             # check if the start/end time ranges overlap
-            (self.start_time..self.end_time).overlaps?(visit.start_time..visit.end_time)
+            if visit.user != self.user
+                (self.start_time..self.end_time).overlaps?(visit.start_time..visit.end_time)
+            end
         end
     end
 

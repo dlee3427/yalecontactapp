@@ -23,6 +23,10 @@
                 <div class="container">
                     <h5>User Type: <%= @user.user_type%></h5>
                 </div>
+
+                <div class="container">
+                    <h5>Current Status: <%= @user.contagious? ? "Contagious" : "Not Contagious" %></h5>
+                </div>
             </div>
 
             <div class="col-7">
