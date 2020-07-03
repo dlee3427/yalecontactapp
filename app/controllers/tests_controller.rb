@@ -12,20 +12,26 @@ class TestsController < ApplicationController
 
         # associate the test with the currently logged in user
         @test.user = @user
+        if @test && @test.valid?
+            # if a user submits a positive test
+            if @test.result == 'positive'
+                # updates the user's new visits as contagious
+                @test.user.update_new_visits_as_contagious
+                @test.save
 
-        # if a user submits a positive test
-        if @test.result == 'positive'
-            # updates the user's new visits as contagious
-            @test.user.update_new_visits_as_contagious
-            @test.save
-
-            # if it's the user's first positive test
-            if @test.user.last_test.result == 'negative'
-                #identify possible transmissions from the last two weeks
-                @test.user.find_possible_transmissions
+                # if it's the user's first positive test
+                if @test.user.last_result == 'negative'
+                    #identify possible transmissions from the last two weeks
+                    @test.user.find_possible_transmissions
+                end
             end
+        elsif !@test.date 
+            flash[:notice] = "You must submit a date!"
+            redirect_to "/tests/new" and return
+        else
+            flash[:notice] = "You must submit a test date!"
+            redirect_to "/tests/new" and return
         end
-
         # saves test to database
         @test.save
         
