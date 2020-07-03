@@ -17,7 +17,9 @@
                 <thead>
                 <tbody>
                         <td><h5><%= Transmission.all.length %></h5></td>
-                        <td><h5><%= %></h5></td>
+                        <td>
+                            <h5><%= @users.count {|user| user.contagious? }%></h5>
+                        </td>
                         <td><h5><%= Test.all.length %></h5></td>
                 </tbody>
             </table>
