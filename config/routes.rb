@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:create]
   resources :tests, only: [:index, :new, :create]
-  resources :visits, only: [:index, :new, :create]
+  resources :visits, only: [:index, :show, :new, :create]
 
 
 

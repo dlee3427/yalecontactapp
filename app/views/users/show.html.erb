@@ -38,17 +38,17 @@
                         <tbody>
                         <% @recent_visits.each do |visit| %>
                             <% if visit.exposure %>
-                                <tr style="color: red">
-                                    <td><%= visit.start_date.to_date %></td>
+                                <tr style="background-color:#FF9999">
+                                    <td><%= visit.start_time.to_date %></td>
                                     <td><%= visit.location.name %></td>
-                                    <td><%= visit.dates_to_s %></td>
-                                    <td>Yes</td>
+                                    <td><%= visit.times_to_s %></td>
+                                    <td><b><%= link_to "Yes", visit_path(visit) %></b></td>
                                 </tr>
                             <% else %>
                                 <tr>
-                                    <td><%= visit.start_date.to_date %></td>
+                                    <td><%= visit.start_time.to_date %></td>
                                     <td><%= visit.location.name %></td>
-                                    <td><%= visit.dates_to_s %></td>
+                                    <td><%= visit.times_to_s %></td>
                                     <td>No</td>
                                 </tr>
                             <% end %>
@@ -68,24 +68,21 @@
                             <tr>
                                 <th scope="col">Date</th>
                                 <th scope="col">Time</th>
-                                <th scope="col">Facility</th>
                                 <th scope="col">Result</th>
                             </tr>
                         </thead>
                         <tbody>
                         <% @recent_tests.each do |test| %>
                             <% if test.result == "positive" %>
-                                <tr style="color: red">
+                                <tr  style="background-color:#FF9999">
                                     <td><%= test.date.to_date %></td>
                                     <td><%= test.date.to_s(:time) %></td>
-                                    <td><%= test.facility.name %></td>
-                                    <td>Positive</td>
+                                    <td><b>Positive</b></td>
                                 </tr>
                             <% else %>
                                 <tr>
                                     <td><%= test.date.to_date %></td>
                                     <td><%= test.date.to_s(:time) %></td>
-                                    <td><%= test.facility.name %></td>
                                     <td>Negative</td>
                                 </tr>
                             <% end %>
