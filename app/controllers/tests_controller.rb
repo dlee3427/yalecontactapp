@@ -20,7 +20,7 @@ class TestsController < ApplicationController
                 @test.save
 
                 # if it's the user's first positive test
-                if @test.user.last_result == 'negative'
+                if @test.user.last_test.result == 'negative'
                     #identify possible transmissions from the last two weeks
                     @test.user.find_possible_transmissions
                 end

@@ -8,7 +8,7 @@ class User < ApplicationRecord
     has_many :spreaders, through: :contracting_transmissions
     has_many :infectees, through: :spreading_transmissions
 
-    validates :name, :email, :password, :password_confirmation, :user_type, :res_college, :class_year, :user_type, presence: true
+    # validates :name, :email, :password, :password_confirmation, :user_type, :res_college, :class_year, :user_type, presence: true
     has_secure_password
 
     # returns the user's most recent negative test
@@ -28,7 +28,7 @@ class User < ApplicationRecord
 
     # returns all of a user's visits history after a given date
     def visits_after(date)
-        self.visits.where("date > ?", date)
+        self.visits.where("end_time > ?", date)
     end
    
     # called when a user submits their first positive test

@@ -20,8 +20,6 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">User</th>
-                        <th scope="col">Contagious?</th>
                         <th scope="col">Date</th>
                         <th scope="col">Location</th>
                         <th scope="col">Start/End Time</th>
@@ -29,11 +27,9 @@
                     </tr>
                 </thead>
                 <tbody>
-                <% Visit.all.each do |visit| %>
+                <% @user.visits.each do |visit| %>
                     <% if visit.exposure %>
                         <tr style="background-color:#FF9999">
-                            <td><%= visit.user.name %></td>
-                            <td><%= visit.contagious %></td>
                             <td><%= visit.start_time.to_date %></td>
                             <td><%= visit.location.name %></td>
                             <td><%= visit.times_to_s %></td>
@@ -41,8 +37,6 @@
                         </tr>
                     <% else %>
                         <tr>
-                            <td><%= visit.user.name %></td>
-                            <td><%= visit.contagious %></td>
                             <td><%= visit.start_time.to_date %></td>
                             <td><%= visit.location.name %></td>
                             <td><%= visit.times_to_s %></td>
