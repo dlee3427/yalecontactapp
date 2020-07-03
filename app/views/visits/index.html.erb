@@ -5,18 +5,21 @@
         </div >
     </section>
     
-    <section id="section-b">
-        <%= link_to "<< Back to profile", user_path %>
-
-        <br>
-
-        <div class="container">
-            <h2><%=@user.name%>'s Contact History</h2>
+    <section id="section-d">
+        <div class="b">
+            <%= link_to "<< Back to profile", user_path %>
         </div>
 
-        <a class="btn btn-first btn-sm" href="/visits/new">Record a new location</a>
+        <div class="row vertically-spaced">
+            <div class="col b">
+                <h2><%=@user.name%>'s Contact History</h2>
+            </div>
+            <div class="col">
+                <a class="btn btn-first btn-sm float-right" href="/visits/new">Record a new location</a>
+            </div>
+        </div>
 
-        <div class="container">
+        <div class="container vertically-spaced">
             <table class="table">
                 <thead>
                     <tr>

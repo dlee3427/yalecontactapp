@@ -1,5 +1,9 @@
 class VisitsController < ApplicationController 
 
+    def index
+        @visits = @user.visits.order(start_time: :desc)
+    end
+    
     def new
         @visit = Visit.new
     end 

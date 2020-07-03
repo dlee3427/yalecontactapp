@@ -171,6 +171,18 @@
 
   }
 
+  #section-d {
+    margin: auto;
+    text-align: center;
+    color: black;
+    border-radius: 25px;
+    background: white;
+    padding: 40px 100px 100px 100px; 
+    width:1000px;
+    min-height: 500px;
+    max-height: 1500px;
+  }
+
   
   div.b {
     text-align: left;
@@ -180,5 +192,10 @@
     text-align: left;
 
   }
+
+  div.vertically-spaced {
+    padding-top: 30px;
+  }
+
 
  

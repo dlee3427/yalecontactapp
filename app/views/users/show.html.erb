@@ -6,28 +6,39 @@
 
     <section id="section-b">
         <div class="row">
+            <div class="col-5">
 
-            <div class="b">
-                <div class="container">
-                    <h2><%=@user.name%>'s Profile</h2>
-                    <hr class="my-4">
-                </div>
-                <div class="container">  
-                    <div class="header-a">
-                    <h5>Residential College: <%= @user.res_college.name %></h5>
+                <div class="b">
+                    <div class="container">
+                        <h6>Dashboard</h6>
+                        <h1><b><%= @user.name %></b></h1>
+                        <hr class="my-4">
                     </div>
-                </div>
+                    <div class="container">  
+                        <div class="header-a">
+                        <h6>Residential College</h6>
+                        <h3><%= @user.res_college.name %></h3>
+                        </div>
+                    </div>
 
-                <div class="container">
-                    <h5>Class Year: <%= @user.class_year%></h5>
-                </div>
+                    <div class="container">
+                        <h6>Class Year</h6>
+                        <h3><%= @user.class_year%></h3>
+                    </div>
 
-                <div class="container">
-                    <h5>User Type: <%= @user.user_type%></h5>
-                </div>
+                    <div class="container">
+                        <h6>User Type</h6>
+                        <h3><%= @user.user_type%></h3>
+                    </div>
 
-                <div class="container">
-                    <h5>Current Status: <%= @user.contagious? ? "Contagious" : "Not Contagious" %></h5>
+                    <div class="container">
+                        <h6>Current Status</h6>
+                        <% if @user.contagious? %>
+                        <h3 style="color: red">Contagious</h3>
+                        <% else %>
+                        <h3>Not Contagious</h3>
+                        <% end %>
+                    </div>
                 </div>
             </div>
 
@@ -69,6 +80,7 @@
                 <div>
 
                 <br>
+                <hr class="my-4"/>
 
                 <div class="container">
                     <h5>Recent Tests</h5>
