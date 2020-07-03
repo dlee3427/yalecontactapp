@@ -4,7 +4,7 @@
 </section>
         <section id="section-c">
             <div class="container">
-                <h2>Yale COVID-19 Analytics</h2>
+                <h2>Campus-wide Statistics</h2>
 
             </div>
             <table class="table">
@@ -12,11 +12,15 @@
                     <tr>
                         <th scope="col">Total Transmissions</th>
                         <th scope="col">Active Cases</th>
-                        <th scope="col">Number of Tests </th>
+                        <th scope="col">Recovered Cases</th>
+                        <th scope="col">Total # of Tests Conduted</th>
                     </tr>
                 <thead>
                 <tbody>
                         <td><h5><%= Transmission.all.length %></h5></td>
+                        <td>
+                            <h5><%= @users.count {|user| user.contagious? }%></h5>
+                        </td>
                         <td>
                             <h5><%= @users.count {|user| user.contagious? }%></h5>
                         </td>
@@ -25,23 +29,25 @@
             </table>
 
             <div class="container">
-                <h2>High Risk Locations</h2>
+                <h2>Data by Locations</h2>
             </div>  
 
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">Locations</th>
+                        <th scope="col">Location</th>
+                        <th scope="col">Building</th>
                         <th scope="col">Total Visits</th>
-                        <th scope="col">Total Transmissions </th>
+                        <th scope="col">Transmission Rate</th>
                     </tr>
                 <thead>
                 <tbody>
                     <% @locations.each do |l| %>
                         <tr>
                             <td><h5><%= l.name %></h5></td>
+                            <td><h5><%= l.building %></h5></td>
                             <td><h5><%= l.visits.count %></h5></td>
-                            <td><h5><%= l.transmissions.count %></h5></td>
+                            <td><h5><%= l.transmission_percent %></h5></td>
                         </tr>  
                     <% end %>
                 </tbody>

@@ -1,6 +1,11 @@
 class TestsController < ApplicationController 
 
     before_action :find_user, only: [:new, :create]
+
+    def index
+        @tests = @user.tests.order(date: :desc)
+    end
+
     def new 
         @test = Test.new
     end 
@@ -39,10 +44,6 @@ class TestsController < ApplicationController
         #redirect to user show page
         redirect_to user_path
     end 
-
-    def index
-    end
-
     private 
 
     def test_params 
